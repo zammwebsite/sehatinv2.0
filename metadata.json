@@ -1,0 +1,8 @@
+{
+  "name": "Sehatin v2",
+  "description": "Sehatin v2 is a web-based digital health application that provides health check-up services using a camera, a medical AI chat, and a location feature to find the nearest health facilities (hospitals, clinics, health centers).",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
