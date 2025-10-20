@@ -1,11 +1,15 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
-// Fix: Changed import.meta.env to process.env to resolve TypeScript error.
-const supabaseUrl = process.env.VITE_SUPABASE_URL!;
-const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY!;
+// ✅ Gunakan import.meta.env agar variabel environment dari Vite bisa terbaca
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+// 🔒 Validasi agar tidak salah konfigurasi saat build
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Supabase URL and Anon Key must be provided in environment variables.');
+throw new Error(
+"Error: Supabase URL dan Anon Key belum diatur di Environment Variables (.env atau Vercel)"
+);
 }
 
+// 🚀 Inisialisasi koneksi Supabase
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
