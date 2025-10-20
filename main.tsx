@@ -4,7 +4,7 @@ import App from './App';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Pastikan Tailwind dan CSS utama diimport agar style tampil
-import './index.css';
+
 
 // Ambil elemen root
 const rootElement = document.getElementById('root');
