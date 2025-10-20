@@ -1,47 +1,67 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-g" />
+    <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sehatin v2 - Digital Health Assistant</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#16a34a', // green-600
-              'primary-focus': '#15803d', // green-700
-              'primary-content': '#ffffff',
-              secondary: '#4f46e5', // indigo-600
-              accent: '#ec4899', // pink-500
-              neutral: '#374151', // gray-700
-              'base-100': '#f9fafb', // gray-50
-              info: '#3b82f6', // blue-500
-              success: '#22c55e', // green-500
-              warning: '#f59e0b', // amber-500
-              error: '#ef4444', // red-500
-            },
-          },
+
+```
+<!-- ✅ TailwindCSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#16a34a', // green-600
+          'primary-focus': '#15803d', // green-700
+          'primary-content': '#ffffff',
+          secondary: '#4f46e5', // indigo-600
+          accent: '#ec4899', // pink-500
+          neutral: '#374151', // gray-700
+          'base-100': '#f9fafb', // gray-50
+          info: '#3b82f6', // blue-500
+          success: '#22c55e', // green-500
+          warning: '#f59e0b', // amber-500
+          error: '#ef4444', // red-500
         },
-      }
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=%VITE_GOOGLE_MAPS_API_KEY%&libraries=places"></script>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.4",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.75.1"
-  }
-}
+      },
+    },
+  };
 </script>
-</head>
-  <body class="bg-base-100">
+
+<!-- ✅ Google Maps API (gunakan variabel environment dari .env) -->
+<script
+  async
+  defer
+  src="https://maps.googleapis.com/maps/api/js?key=%VITE_GOOGLE_MAPS_API_KEY%&libraries=places"
+></script>
+
+<!-- ✅ Importmaps agar React bisa dijalankan tanpa error module -->
+<script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.2.0",
+      "react-dom": "https://esm.sh/react-dom@18.2.0",
+      "react-router-dom": "https://esm.sh/react-router-dom@6.22.3",
+      "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.43.5"
+    }
+  }
+</script>
+```
+
+  </head>
+
+  <body class="bg-base-100 text-gray-800">
+    <!-- ✅ Tempat aplikasi React dirender -->
     <div id="root"></div>
+
+```
+<!-- ✅ Script utama Vite (pastikan path ini sesuai struktur proyek) -->
+<script type="module" src="/src/main.tsx"></script>
+```
+
   </body>
 </html>
