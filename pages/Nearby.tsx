@@ -85,6 +85,11 @@ export const Nearby = () => {
   };
 
   useEffect(() => {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+      setStatus('Gagal memuat peta. Konfigurasi API Key mungkin salah.');
+      return;
+    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         initMap,

@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { ChatMessage } from '../types';
@@ -29,8 +28,10 @@ export const AIChat = () => {
     setIsLoading(true);
 
     try {
-      const history = [...messages, userMessage];
-      const aiResponse = await getAiChatResponse(history, input);
+      // FIX: Pass the message history *before* the new user message.
+      // The `messages` variable holds the state before this update, which is the correct history.
+      // The `input` is passed as the new message to be sent.
+      const aiResponse = await getAiChatResponse(messages, input);
       const modelMessage: ChatMessage = { role: 'model', content: aiResponse };
       setMessages(prev => [...prev, modelMessage]);
     } catch (error) {
